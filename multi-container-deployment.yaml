@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multi-container-app
+  labels:
+    app: multi-container-app
+spec:
+  replicas: 2  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: multi-container-app
+  template:
+    metadata:
+      labels:
+        app: multi-container-app
+    spec:
+      containers:
+        - name: first-container
+          image: atanubiswas/netflix:latest
+          ports:
+            - containerPort: 80
+        - name: second-container
+          image: atanubiswas/reddit
+          ports:
+            - containerPort: 8080
+
