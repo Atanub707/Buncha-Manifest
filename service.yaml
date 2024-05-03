@@ -4,23 +4,24 @@ metadata:
   name: multi-container-service
 spec:
   selector:
-    app: multi-container-app  # Match the labels of your deployment
+    app: multi-container-app
   ports:
     - protocol: TCP
-      port: 80  # Port to expose
-      targetPort: 80  # Port your first container listens on
-  type: LoadBalancer  # Type of service, change if needed (ClusterIP, NodePort, LoadBalancer)
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
 
-```
+---
 apiVersion: v1
 kind: Service
 metadata:
   name: reddit-clone
 spec:
   selector:
-    app: reddit-clone  # Match the labels of your deployment
- ports:
+    app: reddit-clone
+  ports:
     - protocol: TCP
-      port: 3000  # Another port to expose
-      targetPort: 3000  # Port your second container listens on
-  type: LoadBalancer  # Type of service, change if needed (ClusterIP, NodePort, LoadBalancer)
+      port: 3000
+      targetPort: 3000
+  type: LoadBalancer
+
