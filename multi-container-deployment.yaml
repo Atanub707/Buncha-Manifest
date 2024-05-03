@@ -19,8 +19,4 @@ spec:
           image: atanubiswas/netflix:latest
           ports:
             - containerPort: 80
-        - name: second-container
-          image: atanubiswas/reddit
-          ports:
-            - containerPort: 8080
 
